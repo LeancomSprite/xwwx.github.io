@@ -69,7 +69,7 @@
 <p>Visualizações: <span id="views">0</span></p>
 
 <script>
-fetch("https://discord-backend-1.onrender.com/view")
+fetch("https://discord-backend-1.onrender.com/contador")
   .then(res => res.json())
   .then(data => {
     document.getElementById("views").innerText = data.views;
