@@ -66,4 +66,17 @@
 
     </div>
 </section>
-<p>Visualizações: <span id="views">0</span></p>
+<p>Visualizações: <span id="views">carregando...</span></p>
+<script>
+fetch("https://discord-backend-1.onrender.com/contador")
+  .then(r => r.json())
+  .then(d => {
+    console.log("DADOS RECEBIDOS:", d);
+    document.getElementById("views").innerText = d.views;
+  })
+  .catch(err => {
+    console.error("ERRO:", err);
+    document.getElementById("views").innerText = "erro";
+  });
+</script>
+
