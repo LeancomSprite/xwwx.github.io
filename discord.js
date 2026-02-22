@@ -6,19 +6,45 @@ async function loadDiscord() {
 
   if (!json.success) return;
 
-  const user = json.data.discord_user;
-  const status = json.data.discord_status;
+  const data = json.data;
+  const user = data.discord_user;
 
+  // Avatar + nome
   document.getElementById("discordName").innerText = user.username;
-
   document.getElementById("discordAvatar").src =
     `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
 
-  const statusElement = document.getElementById("discordStatus");
+  // Status dot
+  const dot = document.getElementById("statusDot");
+  dot.className = "status-dot " + data.discord_status;
 
-  statusElement.innerText = status;
-  statusElement.className = status;
+  // Atividade
+  const activityText = document.getElementById("activityText");
+  if (data.activities.length > 0) {
+    activityText.innerText = "Usando: " + data.activities[0].name;
+  } else {
+    activityText.innerText = "Sem atividade";
+  }
+
+  // Spotify
+  const spotifyBox = document.getElementById("spotifyBox");
+
+  if (data.listening_to_spotify) {
+    spotifyBox.style.display = "flex";
+
+    document.getElementById("songName").innerText =
+      data.spotify.song;
+
+    document.getElementById("artistName").innerText =
+      data.spotify.artist;
+
+    document.getElementById("spotifyCover").src =
+      data.spotify.album_art_url;
+
+  } else {
+    spotifyBox.style.display = "none";
+  }
 }
 
 loadDiscord();
-setInterval(loadDiscord, 10000);
+setInterval(loadDiscord, 5000);
