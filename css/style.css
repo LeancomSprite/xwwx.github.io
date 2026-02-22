@@ -184,3 +184,7 @@ body {
   width: 200px;
   height: 220px;
 }
+.online { color: #43b581; }
+.idle { color: #faa61a; }
+.dnd { color: #f04747; }
+.offline { color: gray; }
