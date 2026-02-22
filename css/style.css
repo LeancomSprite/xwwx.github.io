@@ -157,12 +157,6 @@ body {
     background: #007bff;
     color: white;
 }
-.avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
 .social-link-card b {
     color: #007bff;
     text-decoration: none;
@@ -171,4 +165,10 @@ body {
     border-radius: 5px;
     background: #007bff;
     color: white;
+}
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
