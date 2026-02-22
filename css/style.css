@@ -188,3 +188,35 @@ body {
 .idle { color: #faa61a; }
 .dnd { color: #f04747; }
 .offline { color: gray; }
+.avatar-wrapper {
+  position: relative;
+  width: 60px;
+  margin: auto;
+}
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  border: 2px solid white;
+}
+
+.online { background: #43b581; }
+.idle { background: #faa61a; }
+.dnd { background: #f04747; }
+.offline { background: gray; }
+
+.spotify {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.spotify img {
+  width: 50px;
+  border-radius: 8px;
+}
