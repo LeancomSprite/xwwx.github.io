@@ -2,15 +2,17 @@ const userId = "1462586784067358894";
 
 async function loadDiscord() {
   const res = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
-  const data = await res.json();
+  const json = await res.json();
 
-  const user = data.data.discord_user;
+  if (!json.success) return;
 
-  document.getElementById("name").innerText = user.username;
+  const user = json.data.discord_user;
 
-  document.getElementById("avatar").src =
+  document.getElementById("discordName").innerText = user.username;
+
+  document.getElementById("discordAvatar").src =
     `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
 }
 
 loadDiscord();
-setInterval(loadDiscord, 5000);
+setInterval(loadDiscord, 10000);
